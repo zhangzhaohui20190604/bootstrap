@@ -15,21 +15,25 @@ Be sure to use an appropriate `type` attribute on all inputs (e.g., `email` for 
 Here's a quick example to demonstrate Bootstrap's form styles. Keep reading for documentation on required classes, form layout, and more.
 
 {{< example >}}
-<form>
-  <div class="form-group">
+<form class="grid grid-sm">
+  <div>
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  <div class="form-group">
+  <div>
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -40,12 +44,12 @@ Textual form controls—like `<input>`s, `<select>`s, and `<textarea>`s—are st
 Be sure to explore our [custom forms](#custom-forms) to further style `<select>`s.
 
 {{< example >}}
-<form>
-  <div class="form-group">
+<form class="grid grid-sm">
+  <div>
     <label for="exampleFormControlInput1">Email address</label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
-  <div class="form-group">
+  <div>
     <label for="exampleFormControlSelect1">Example select</label>
     <select class="form-control" id="exampleFormControlSelect1">
       <option>1</option>
@@ -55,7 +59,7 @@ Be sure to explore our [custom forms](#custom-forms) to further style `<select>`
       <option>5</option>
     </select>
   </div>
-  <div class="form-group">
+  <div>
     <label for="exampleFormControlSelect2">Example multiple select</label>
     <select multiple class="form-control" id="exampleFormControlSelect2">
       <option>1</option>
@@ -65,7 +69,7 @@ Be sure to explore our [custom forms](#custom-forms) to further style `<select>`
       <option>5</option>
     </select>
   </div>
-  <div class="form-group">
+  <div>
     <label for="exampleFormControlTextarea1">Example textarea</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
@@ -75,8 +79,8 @@ Be sure to explore our [custom forms](#custom-forms) to further style `<select>`
 For file inputs, swap the `.form-control` for `.form-control-file`.
 
 {{< example >}}
-<form>
-  <div class="form-group">
+<form class="grid grid-sm">
+  <div>
     <label for="exampleFormControlFile1">Example file input</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
   </div>
@@ -118,33 +122,31 @@ Add the `readonly` boolean attribute on an input to prevent modification of the 
 If you want to have `<input readonly>` elements in your form styled as plain text, use the `.form-control-plaintext` class to remove the default form field styling and preserve the correct margin and padding.
 
 {{< example >}}
-<form>
-  <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-    </div>
+<form class="grid grid-sm">
+  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
   </div>
-  <div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+  <div class="col-sm-10">
+    <input type="password" class="form-control" id="inputPassword">
     </div>
-  </div>
 </form>
 {{< /example >}}
 
 {{< example >}}
-<form class="form-inline">
-  <div class="form-group mb-2">
+<form class="grid grid-sm">
+  <div class="col-sm-auto">
     <label for="staticEmail2" class="sr-only">Email</label>
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
   </div>
-  <div class="form-group mx-sm-3 mb-2">
+  <div class="col-sm-auto">
     <label for="inputPassword2" class="sr-only">Password</label>
     <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+  <div class="col-sm-auto">
+    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -214,32 +216,48 @@ By default, any number of checkboxes and radios that are immediate sibling will 
 Group checkboxes or radios on the same horizontal row by adding `.form-check-inline` to any `.form-check`.
 
 {{< example >}}
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">1</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  <label class="form-check-label" for="inlineCheckbox2">2</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+<div class="grid grid-sm">
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+      <label class="form-check-label" for="inlineCheckbox1">1</label>
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+      <label class="form-check-label" for="inlineCheckbox2">2</label>
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+      <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+    </div>
+  </div>
 </div>
 {{< /example >}}
 
 {{< example >}}
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-  <label class="form-check-label" for="inlineRadio1">1</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-  <label class="form-check-label" for="inlineRadio2">2</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-  <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+<div class="grid grid-sm">
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+      <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+    </div>
+  </div>
 </div>
 {{< /example >}}
 
@@ -260,53 +278,32 @@ Add `.position-static` to inputs within `.form-check` that don't have any label 
 
 Since Bootstrap applies `display: block` and `width: 100%` to almost all our form controls, forms will by default stack vertically. Additional classes can be used to vary this layout on a per-form basis.
 
-### Form groups
+### Grid
 
-The `.form-group` class is the easiest way to add some structure to forms. It provides a flexible class that encourages proper grouping of labels, controls, optional help text, and form validation messaging. By default it only applies `margin-bottom`, but it picks up additional styles in `.form-inline` as needed. Use it with `<fieldset>`s, `<div>`s, or nearly any other element.
+The easiest way to align forms is by using our grid classes. Use these for form layouts that require multiple columns, varied widths, and additional alignment options.
 
 {{< example >}}
-<form>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Example label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+<form class="grid">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name">
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Another label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name">
   </div>
 </form>
 {{< /example >}}
 
-### Form grid
+#### Grid sizes
 
-More complex forms can be built using our grid classes. Use these for form layouts that require multiple columns, varied widths, and additional alignment options.
+You may also add the `.grid-sm` class, a variation of our standard grid that overrides the default column gutters for tighter and more compact layouts.
 
 {{< example >}}
-<form>
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="First name">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Last name">
-    </div>
+<form class="grid grid-sm">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name">
   </div>
-</form>
-{{< /example >}}
-
-#### Form row
-
-You may also swap `.row` for `.form-row`, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
-
-{{< example >}}
-<form>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="First name">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Last name">
-    </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name">
   </div>
 </form>
 {{< /example >}}
@@ -314,43 +311,39 @@ You may also swap `.row` for `.form-row`, a variation of our standard grid row t
 More complex layouts can also be created with the grid system.
 
 {{< example >}}
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
+<form class="grid grid-sm">
+  <div class="col-md-6">
+    <label for="inputEmail4">Email</label>
+    <input type="email" class="form-control" id="inputEmail4">
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
+    <label for="inputPassword4">Password</label>
+    <input type="password" class="form-control" id="inputPassword4">
+  </div>
+  <div>
     <label for="inputAddress">Address</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-group">
+  <div>
     <label for="inputAddress2">Address 2</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
+  <div class="col-md-6">
+    <label for="inputCity">City</label>
+    <input type="text" class="form-control" id="inputCity">
   </div>
-  <div class="form-group">
+  <div class="col-md-4">
+    <label for="inputState">State</label>
+    <select id="inputState" class="form-control">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+  <div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
@@ -358,7 +351,9 @@ More complex layouts can also be created with the grid system.
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -369,20 +364,16 @@ Create horizontal forms with the grid by adding the `.row` class to form groups 
 At times, you maybe need to use margin or padding utilities to create that perfect alignment you need. For example, we've removed the `padding-top` on our stacked radio inputs label to better align the text baseline.
 
 {{< example >}}
-<form>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
-    </div>
+<form class="grid grid-sm">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input type="email" class="form-control" id="inputEmail3">
   </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3">
-    </div>
+  <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+  <div class="col-sm-10">
+    <input type="password" class="form-control" id="inputPassword3">
   </div>
-  <fieldset class="form-group">
+  <fieldset>
     <div class="row">
       <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
       <div class="col-sm-10">
@@ -407,21 +398,17 @@ At times, you maybe need to use margin or padding utilities to create that perfe
       </div>
     </div>
   </fieldset>
-  <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
+  <div class="col-sm-2">Checkbox</div>
+  <div class="col-sm-10">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck1">
+      <label class="form-check-label" for="gridCheck1">
+        Example checkbox
+      </label>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
   </div>
 </form>
 {{< /example >}}
@@ -431,24 +418,20 @@ At times, you maybe need to use margin or padding utilities to create that perfe
 Be sure to use `.col-form-label-sm` or `.col-form-label-lg` to your `<label>`s or `<legend>`s to correctly follow the size of `.form-control-lg` and `.form-control-sm`.
 
 {{< example >}}
-<form>
-  <div class="form-group row">
-    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
-    </div>
+<form class="grid grid-sm">
+  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+  <div class="col-sm-10">
+    <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
   </div>
-  <div class="form-group row">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-    </div>
+
+  <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
   </div>
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
-    </div>
+
+  <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+  <div class="col-sm-10">
+    <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
   </div>
 </form>
 {{< /example >}}
@@ -458,17 +441,15 @@ Be sure to use `.col-form-label-sm` or `.col-form-label-lg` to your `<label>`s o
 As shown in the previous examples, our grid system allows you to place any number of `.col`s within a `.row` or `.form-row`. They'll split the available width equally between them. You may also pick a subset of your columns to take up more or less space, while the remaining `.col`s equally split the rest, with specific column classes like `.col-7`.
 
 {{< example >}}
-<form>
-  <div class="form-row">
-    <div class="col-7">
-      <input type="text" class="form-control" placeholder="City">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="State">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Zip">
-    </div>
+<form class="grid grid-sm">
+  <div class="col-7">
+    <input type="text" class="form-control" placeholder="City">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="State">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Zip">
   </div>
 </form>
 {{< /example >}}
@@ -478,32 +459,30 @@ As shown in the previous examples, our grid system allows you to place any numbe
 The example below uses a flexbox utility to vertically center the contents and changes `.col` to `.col-auto` so that your columns only take up as much space as needed. Put another way, the column sizes itself based on the contents.
 
 {{< example >}}
-<form>
-  <div class="form-row align-items-center">
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInput">Name</label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
-    </div>
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInputGroup">Username</label>
-      <div class="input-group mb-2">
-        <div class="input-group-prepend">
-          <div class="input-group-text">@</div>
-        </div>
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+<form class="grid grid-sm align-items-center">
+  <div class="col-auto">
+    <label class="sr-only" for="inlineFormInput">Name</label>
+    <input type="text" class="form-control" id="inlineFormInput" placeholder="Jane Doe">
+  </div>
+  <div class="col-auto">
+    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
       </div>
+      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
     </div>
-    <div class="col-auto">
-      <div class="form-check mb-2">
-        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-        <label class="form-check-label" for="autoSizingCheck">
-          Remember me
-        </label>
-      </div>
+  </div>
+  <div class="col-sm-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+      <label class="form-check-label" for="autoSizingCheck">
+        Remember me
+      </label>
     </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">Submit</button>
-    </div>
+  </div>
+  <div class="col-sm-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 {{< /example >}}
@@ -511,32 +490,30 @@ The example below uses a flexbox utility to vertically center the contents and c
 You can then remix that once again with size-specific column classes.
 
 {{< example >}}
-<form>
-  <div class="form-row align-items-center">
-    <div class="col-sm-3 my-1">
-      <label class="sr-only" for="inlineFormInputName">Name</label>
-      <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
-    </div>
-    <div class="col-sm-3 my-1">
-      <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">@</div>
-        </div>
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+<form class="grid grid-sm align-items-center">
+  <div class="col-sm-3">
+    <label class="sr-only" for="inlineFormInputName">Name</label>
+    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
+  </div>
+  <div class="col-sm-3">
+    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
       </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
     </div>
-    <div class="col-auto my-1">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
-        <label class="form-check-label" for="autoSizingCheck2">
-          Remember me
-        </label>
-      </div>
+  </div>
+  <div class="col-sm-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+      <label class="form-check-label" for="autoSizingCheck2">
+        Remember me
+      </label>
     </div>
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+  </div>
+  <div class="col-sm-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 {{< /example >}}
@@ -544,26 +521,24 @@ You can then remix that once again with size-specific column classes.
 And of course [custom form controls](#custom-forms) are supported.
 
 {{< example >}}
-<form>
-  <div class="form-row align-items-center">
-    <div class="col-auto my-1">
-      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+<form class="grid grid-sm align-items-center">
+  <div class="col-sm-auto">
+    <label class="sr-only" for="inlineFormCustomSelect">Preference</label>
+    <select class="custom-select" id="inlineFormCustomSelect">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <div class="col-sm-auto">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+      <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
     </div>
-    <div class="col-auto my-1">
-      <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
-      </div>
-    </div>
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+  </div>
+  <div class="col-sm-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 {{< /example >}}
@@ -579,26 +554,34 @@ Use the `.form-inline` class to display a series of labels, form controls, and b
 You may need to manually address the width and alignment of individual form controls with [spacing utilities]({{< docsref "/utilities/spacing" >}}) (as shown below). Lastly, be sure to always include a `<label>` with each form control, even if you need to hide it from non-screenreader visitors with `.sr-only`.
 
 {{< example >}}
-<form class="form-inline">
-  <label class="sr-only" for="inlineFormInputName2">Name</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+<form class="grid grid-sm align-items-center">
+  <div class="col-sm-auto">
+    <label class="sr-only" for="inlineFormInputName2">Name</label>
+    <input type="text" class="form-control" id="inlineFormInputName2" placeholder="Jane Doe">
+  </div>
 
-  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-  <div class="input-group mb-2 mr-sm-2">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
+  <div class="col-sm-auto">
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
     </div>
-    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
   </div>
 
-  <div class="form-check mb-2 mr-sm-2">
-    <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-    <label class="form-check-label" for="inlineFormCheck">
-      Remember me
-    </label>
+  <div class="col-sm-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+      <label class="form-check-label" for="inlineFormCheck">
+        Remember me
+      </label>
+    </div>
   </div>
-
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  
+  <div class="col-sm-auto">
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -652,10 +635,14 @@ Help text below inputs can be styled with `.form-text`. This class includes `dis
 Inline text can use any typical inline HTML element (be it a `<small>`, `<span>`, or something else) with nothing more than a utility class.
 
 {{< example >}}
-<form class="form-inline">
-  <div class="form-group">
-    <label for="inputPassword6">Password</label>
-    <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+<form class="row row-sm align-items-center">
+  <div class="col-sm-auto">
+    <label for="inputPassword6" class="m-sm-0">Password</label>
+  </div>
+  <div class="col-sm-auto">
+    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-sm-auto">
     <small id="passwordHelpInline" class="text-muted">
       Must be 8-20 characters long.
     </small>
@@ -675,18 +662,18 @@ Add the `disabled` attribute to a `<fieldset>` to disable all the controls withi
 
 {{< example >}}
 <form>
-  <fieldset disabled>
-    <div class="form-group">
+  <fieldset disabled class="grid grid-sm">
+    <div>
       <label for="disabledTextInput">Disabled input</label>
       <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
     </div>
-    <div class="form-group">
+    <div>
       <label for="disabledSelect">Disabled select menu</label>
       <select id="disabledSelect" class="form-control">
         <option>Disabled select</option>
       </select>
     </div>
-    <div class="form-group">
+    <div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
         <label class="form-check-label" for="disabledFieldsetCheck">
@@ -694,7 +681,9 @@ Add the `disabled` attribute to a `<fieldset>` to disable all the controls withi
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </fieldset>
 </form>
 {{< /example >}}
@@ -741,62 +730,58 @@ For custom Bootstrap form validation messages, you'll need to add the `novalidat
 Custom feedback styles apply custom colors, borders, focus styles, and background icons to better communicate feedback. Background icons for `<select>`s are only available with `.custom-select`, and not `.form-control`.
 
 {{< example >}}
-<form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom01">First name</label>
-      <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+<form class="needs-validation grid grid-sm" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01">First name</label>
+    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom02">Last name</label>
-      <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02">Last name</label>
+    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-        <div class="invalid-feedback">
-          Please choose a username.
-        </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend">@</span>
+      </div>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">City</label>
-      <input type="text" class="form-control" id="validationCustom03" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom04">State</label>
-      <select class="custom-select" id="validationCustom04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-feedback">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom05">Zip</label>
-      <input type="text" class="form-control" id="validationCustom05" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
+  <div class="col-md-6">
+    <label for="validationCustom03">City</label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
     </div>
   </div>
-  <div class="form-group">
+  <div class="col-md-3">
+    <label for="validationCustom04">State</label>
+    <select class="custom-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
       <label class="form-check-label" for="invalidCheck">
@@ -807,7 +792,9 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
 
 <script>
@@ -839,44 +826,40 @@ Not interested in custom validation feedback messages or writing JavaScript to c
 While these feedback styles cannot be styled with CSS, you can still customize the feedback text through JavaScript.
 
 {{< example >}}
-<form>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01">First name</label>
-      <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Last name</label>
-      <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationDefaultUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+<form class="grid grid-sm">
+  <div class="col-md-4">
+    <label for="validationDefault01">First name</label>
+    <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02">Last name</label>
+    <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefaultUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend2">@</span>
       </div>
+      <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">City</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault04">State</label>
-      <select class="custom-select" id="validationDefault04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Zip</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
+  <div class="col-md-6 mb-3">
+    <label for="validationDefault03">City</label>
+    <input type="text" class="form-control" id="validationDefault03" required>
   </div>
-  <div class="form-group">
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault04">State</label>
+    <select class="custom-select" id="validationDefault04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault05">Zip</label>
+    <input type="text" class="form-control" id="validationDefault05" required>
+  </div>
+  <div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
       <label class="form-check-label" for="invalidCheck2">
@@ -884,7 +867,9 @@ While these feedback styles cannot be styled with CSS, you can still customize t
       </label>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -893,62 +878,58 @@ While these feedback styles cannot be styled with CSS, you can still customize t
 We recommend using client-side validation, but in case you require server-side validation, you can indicate invalid and valid form fields with `.is-invalid` and `.is-valid`. Note that `.invalid-feedback` is also supported with these classes.
 
 {{< example >}}
-<form>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationServer01">First name</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+<form class="grid grid-sm">
+  <div class="col-md-4">
+    <label for="validationServer01">First name</label>
+    <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServer02">Last name</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServer02">Last name</label>
+    <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServerUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend3">@</span>
-        </div>
-        <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
-        <div class="invalid-feedback">
-          Please choose a username.
-        </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServerUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+      </div>
+      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
+      <div class="invalid-feedback">
+        Please choose a username.
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationServer03">City</label>
-      <input type="text" class="form-control is-invalid" id="validationServer03" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer04">State</label>
-      <select class="custom-select is-invalid" id="validationServer04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-feedback">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer05">Zip</label>
-      <input type="text" class="form-control is-invalid" id="validationServer05" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
+  <div class="col-md-6 mb-3">
+    <label for="validationServer03">City</label>
+    <input type="text" class="form-control is-invalid" id="validationServer03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
     </div>
   </div>
-  <div class="form-group">
+  <div class="col-md-3 mb-3">
+    <label for="validationServer04">State</label>
+    <select class="custom-select is-invalid" id="validationServer04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <label for="validationServer05">Zip</label>
+    <input type="text" class="form-control is-invalid" id="validationServer05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div>
     <div class="form-check">
       <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
       <label class="form-check-label" for="invalidCheck3">
@@ -959,7 +940,9 @@ We recommend using client-side validation, but in case you require server-side v
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
 {{< /example >}}
 
@@ -974,8 +957,8 @@ Validation styles are available for the following form controls and components:
 - `.custom-file`
 
 {{< example >}}
-<form class="was-validated">
-  <div class="mb-3">
+<form class="grid grid-sm was-validated">
+  <div>
     <label for="validationTextarea">Textarea</label>
     <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
     <div class="invalid-feedback">
@@ -983,23 +966,27 @@ Validation styles are available for the following form controls and components:
     </div>
   </div>
 
-  <div class="custom-control custom-checkbox mb-3">
-    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-    <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
-    <div class="invalid-feedback">Example invalid feedback text</div>
+  <div>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+      <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+      <div class="invalid-feedback">Example invalid feedback text</div>
+    </div>
   </div>
 
-  <div class="custom-control custom-radio">
-    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-  </div>
-  <div class="custom-control custom-radio mb-3">
-    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
-    <div class="invalid-feedback">More example invalid feedback text</div>
+  <div>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+      <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+      <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+      <div class="invalid-feedback">More example invalid feedback text</div>
+    </div>
   </div>
 
-  <div class="form-group">
+  <div>
     <select class="custom-select" required>
       <option value="">Open this select menu</option>
       <option value="1">One</option>
@@ -1009,13 +996,15 @@ Validation styles are available for the following form controls and components:
     <div class="invalid-feedback">Example invalid custom select feedback</div>
   </div>
 
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-    <label class="custom-file-label" for="validatedCustomFile">
-      <span class="custom-file-text">Choose file...</span>
-      <span class="custom-file-button">Browse</span>
-    </label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  <div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+      <label class="custom-file-label" for="validatedCustomFile">
+        <span class="custom-file-text">Choose file...</span>
+        <span class="custom-file-button">Browse</span>
+      </label>
+      <div class="invalid-feedback">Example invalid custom file feedback</div>
+    </div>
   </div>
 </form>
 {{< /example >}}
@@ -1025,62 +1014,60 @@ Validation styles are available for the following form controls and components:
 If your form layout allows it, you can swap the `.{valid|invalid}-feedback` classes for `.{valid|invalid}-tooltip` classes to display validation feedback in a styled tooltip. Be sure to have a parent with `position: relative` on it for tooltip positioning. In the example below, our column classes have this already, but your project may require an alternative setup.
 
 {{< example >}}
-<form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip01">First name</label>
-      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-      <div class="valid-tooltip">
-        Looks good!
-      </div>
+<form class="needs-validation grid grid-sm" novalidate>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltip01">First name</label>
+    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+    <div class="valid-tooltip">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip02">Last name</label>
-      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
-      <div class="valid-tooltip">
-        Looks good!
-      </div>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltip02">Last name</label>
+    <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+    <div class="valid-tooltip">
+      Looks good!
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltipUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
-        <div class="invalid-tooltip">
-          Please choose a unique and valid username.
-        </div>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltipUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+      </div>
+      <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+      <div class="invalid-tooltip">
+        Please choose a unique and valid username.
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip03">City</label>
-      <input type="text" class="form-control" id="validationTooltip03" required>
-      <div class="invalid-tooltip">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip04">State</label>
-      <select class="custom-select" id="validationTooltip04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-tooltip">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip05">Zip</label>
-      <input type="text" class="form-control" id="validationTooltip05" required>
-      <div class="invalid-tooltip">
-        Please provide a valid zip.
-      </div>
+  <div class="col-md-6 position-relative">
+    <label for="validationTooltip03">City</label>
+    <input type="text" class="form-control" id="validationTooltip03" required>
+    <div class="invalid-tooltip">
+      Please provide a valid city.
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <div class="col-md-3 position-relative">
+    <label for="validationTooltip04">State</label>
+    <select class="custom-select" id="validationTooltip04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-tooltip">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3 position-relative">
+    <label for="validationTooltip05">Zip</label>
+    <input type="text" class="form-control" id="validationTooltip05" required>
+    <div class="invalid-tooltip">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
 {{< /example >}}
 
