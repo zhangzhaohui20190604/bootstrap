@@ -6,7 +6,7 @@ aliases: "/thanks/"
 toc: true
 ---
 
-Through donations and sponsorships  we are able to maintain & improve Bootstrap. Feel free to show your support on our [Open Collective page](https://opencollective.com/bootstrap).
+Through donations and sponsorships we are able to maintain & improve Bootstrap. Feel free to show your support on our [Open Collective page](https://opencollective.com/bootstrap).
 
 ## Sponsors
 
@@ -76,5 +76,3 @@ Through donations and sponsorships  we are able to maintain & improve Bootstrap.
   {{ end -}}
 </div>
 {{< /services.inline >}}
-
-
